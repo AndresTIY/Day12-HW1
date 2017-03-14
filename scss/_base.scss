@@ -1,0 +1,25 @@
+.banner {
+  width: 100%;
+}
+
+.white-space {
+  background: $color-etsy-banner;
+  font-family: sans-serif;
+  padding: .1%;
+  p {
+    padding-left: 1rem;
+  }
+}
+
+body {
+  background: $color-background;
+  margin: 0;
+}
+.answer {
+  text-align: center;
+  color: $color-font;
+  font-size: 1.5em;
+}
+.answer-font {
+  font-size: 1rem;
+}
