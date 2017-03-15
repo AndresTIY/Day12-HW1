@@ -36,3 +36,56 @@ var filteredItemList = items.filter(function(currentItem, index, array){
 filteredItemList.forEach(function(item, index, arr){
   ansInput2.innerHTML += '<li>' + item.title + '</li>';
 })
+
+// Which item has a "GBP" currency code? Display it's name and price.
+// 1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
+
+var filteredByGbp = items.filter(function(currentItem, index, array){
+  return currentItem.currency_code === 'GBP';
+})
+filteredByGbp.forEach(function(currentItem, index, array){
+  ansInput3.innerHTML += currentItem.title + " costs £" + currentItem.price;
+})
+// Display a list of all items who are made of wood.
+// SALE Mid Century Siesta Ware White Mug with Anchor - Set of 3 is made of wood.
+//
+// Bottle cap catcher personalized. Man cave gift for him- Wooden Beer pub sign - Groomsmen wedding Gift is made of wood.
+//
+// Medium Size, Welcome To Our Firepit-Where Friends And Marshmallows Get Toasted At The Same Time-Painted Wood Sign-Custom Colors is made of wood.
+//
+// Magnetic Wall Mount Bottle Opener Barware Set - Stainless Steel or Black - Personalized if you like! is made of wood.
+//
+// Engraved Pocket Knife, Personalized Groomsmen Gift, Ring Bearer Gift, Graduation Gift, 4 Knives is made of wood.
+//5 items with wood
+//title + is made of + wood
+// var materials = items.filter(function(currentItem, index, array))
+var materialsArray = items.map(function(currentItem, index, array){
+  return currentItem.materials;
+});
+var materials = materialsArray.map(function(currentItem, index, array){
+    // console.log(currentItem[index]);
+})
+
+
+// var filteredByWood = materials.filter(function(currentItem, index, array){
+//   return array === 'wood';
+//   // console.log(currentItem);
+// });
+// console.log(filteredByWood);
+// Which items are made of eight or more materials? Display the name, number of items and the items it is made of.
+var eightOrMore = items.filter(function(currentItem, index, array){
+  return currentItem.materials.length >= 8;
+});
+
+eightOrMore.forEach(function(currentItem, index, array){
+  ansInput5.innerHTML += '<li>'+ currentItem.title  + " has " + currentItem.materials.length + " materials.</li>";
+  ansInput5.innerHTML += '<li>'  + currentItem.materials + '</li>';
+});
+
+//how many items were made by their sellers?
+//  18 were made by their sellers
+// "who_made": "i_did",
+var madeBySellers = items.filter(function(currentItem, index, array){
+  return currentItem.who_made === "i_did";
+})
+ansInput6.innerHTML = madeBySellers.length + " were made by their sellers"
